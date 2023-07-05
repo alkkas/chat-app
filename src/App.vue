@@ -4,7 +4,7 @@ import MessageView from '@/components/MessageView.vue'
 import SendMessage from '@/components/SendMessage.vue'
 import { type Message } from '@/types/msgs'
 import { generateMsg } from '@/utils/msgs'
-import { nextTick, onMounted, onUpdated, ref } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
 
 const offset = ref(0)
 const offsetValue = 20
@@ -39,7 +39,6 @@ const closeError = () => {
   isError.value = false
 }
 
-onUpdated(() => {})
 
 onMounted(() => {
   loadNewMessages()
