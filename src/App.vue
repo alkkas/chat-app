@@ -7,6 +7,7 @@ import { generateMsg } from '@/utils/msgs'
 import { nextTick, onMounted, onUpdated, ref } from 'vue'
 
 const offset = ref(0)
+const offsetValue = 20
 const isLoading = ref(false)
 const isError = ref(false)
 const messages = ref<Message[]>([])
@@ -20,7 +21,7 @@ const loadNewMessages = async () => {
     isError.value = false
     const msgs = await getMessages(offset.value)
     messages.value = [...msgs, ...messages.value]
-    offset.value += 20
+    offset.value += offsetValue
   } catch (e) {
     isError.value = true
   }
